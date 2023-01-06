@@ -2,7 +2,7 @@
   "name": "vmp-game",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
+    "@types/node": "^18.11.18",
     "@types/prettier": "^2.7.2",
     "@vitejs/plugin-vue": "^4.0.0",
     "node-sass": "^8.0.0",

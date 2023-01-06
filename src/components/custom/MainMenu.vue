@@ -3,7 +3,7 @@
     <div>
       <h1 class="h1 m-bottom-8">Dark ring</h1>
       <nav class="main-menu__nav">
-        <g-button>
+        <g-button to="/game">
           Start game
         </g-button>
       </nav>

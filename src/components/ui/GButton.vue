@@ -1,10 +1,27 @@
 <template>
-  <button :class="$style.button" class="clip">
+  <button :class="$style.button" class="clip" @click="clickEvent">
     <div class="clip">
       <slot></slot>
     </div>
   </button>
 </template>
+
+<script lang="ts" setup>
+import router from "../../router";
+
+const props = defineProps({
+  to: {
+    type: String
+  }
+})
+
+function clickEvent() {
+  if (props.to) {
+    router.push(props.to)
+  }
+}
+
+</script>
 
 <style lang="scss" module>
 .button {
