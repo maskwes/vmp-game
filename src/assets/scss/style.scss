@@ -1,0 +1,21 @@
+@import "variables";
+@import "fonts";
+@import "mixins";
+@import "utils";
+
+.menu {
+}
+
+.height-fluid {
+  height: 100%;
+}
+
+.align {
+  &-center {
+    align-items: center;
+  }
+}
+
+.clip {
+  clip-path: $clip-polygon;
+}

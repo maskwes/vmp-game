@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Bitm Gothic";
+  src: url("@/assets/fonts/bitmgothic/Bitmgothic.eot") format('eot'),
+  url("@/assets/fonts/bitmgothic/Bitmgothic.otf") format('otf'),
+  url("@/assets/fonts/bitmgothic/Bitmgothic.ttf") format('ttf'),
+  url("@/assets/fonts/bitmgothic/Bitmgothic.woff") format('woff');
+}
+
+.h1 {
+  font-size: 140px;
+  margin: 0;
+  text-align: center;
+  font-family: $main-font;
+  color: #ffffff;
+}
