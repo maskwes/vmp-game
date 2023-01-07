@@ -1,17 +1,13 @@
 import * as ex from 'excalibur';
+import {getFileUrl} from './utils';
 
-const getImageUrl = (path: string) => {
-  return new URL(path, import.meta.url).href;
-};
-const evilWizard = getImageUrl('./spritesheets/heroes/evilWizard.png');
-const Resources = {
+const evilWizard = getFileUrl('./spritesheets/heroes/evilWizard.png');
+const HeroesResources = {
   evilWizard: new ex.ImageSource(evilWizard),
 };
 
-const loader = new ex.Loader();
-
 const evilWizardSpriteSheet = ex.SpriteSheet.fromImageSource({
-  image: Resources.evilWizard,
+  image: HeroesResources.evilWizard,
   grid: {
     columns: 8,
     rows: 2,
@@ -20,8 +16,4 @@ const evilWizardSpriteSheet = ex.SpriteSheet.fromImageSource({
   },
 });
 
-for (const res in Resources) {
-  loader.addResource((Resources as any)[res]);
-}
-
-export {Resources, loader, evilWizardSpriteSheet};
+export {HeroesResources, evilWizardSpriteSheet};

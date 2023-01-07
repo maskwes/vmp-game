@@ -1,11 +1,11 @@
 import * as ex from 'excalibur';
-import {loader} from './resources/heroes';
-import {Forest} from './levels/forest';
+import {Loader} from './resources';
+import {DeadSwamp} from './levels/deadSwamp';
 
-let game;
-const level = new Forest();
+let game: any;
+const level = new DeadSwamp();
 
-export function startGame() {
+function startGame() {
   game = new ex.Engine({
     backgroundColor: ex.Color.fromHex('#5fcde4'),
     canvasElementId: 'game',
@@ -15,5 +15,7 @@ export function startGame() {
   });
   game.add('level', level);
   game.goToScene('level');
-  game.start(loader).then(r => console.log('asdas'));
+  game.start(Loader).then(() => {});
 }
+
+export {game, startGame};
