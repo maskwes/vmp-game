@@ -33,13 +33,16 @@ export class Enemy extends ex.Actor {
     this.graphics.use('move');
     setInterval(() => {
       if (this.player.pos.x != this.pos.x) {
-        console.log((this.player.pos.x - this.pos.x) * 0.01);
-        this.pos.x += (((this.player.pos.x - this.pos.x) * 0.01) % 1) + 2;
+        this.pos.x += this.getSpeed(this.player.pos.x - this.pos.x);
       }
       if (this.player.pos.y != this.pos.y) {
-        this.pos.y += (((this.player.pos.y - this.pos.y) * 0.01) % 1) + 2;
+        this.pos.y += this.getSpeed(this.player.pos.y - this.pos.y);
       }
     }, 50);
+  }
+
+  getSpeed(differencePosition: number) {
+    return differencePosition < 0 ? -2 : 2;
   }
 }
 
