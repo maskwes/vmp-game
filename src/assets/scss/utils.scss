@@ -1,0 +1,10 @@
+.is {
+  // positions
+  &-centered {
+    @include flexible(center);
+  }
+}
+
+@include addUtilsMargin('m', 'margin');
+@include addUtilsMargin('p', 'padding');
+

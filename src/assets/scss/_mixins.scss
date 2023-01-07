@@ -1,0 +1,26 @@
+@import "variables";
+
+@mixin flexible($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: $direction;
+}
+
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+}
+
+@mixin addUtilsMargin($className,$property) {
+  .#{$className} {
+    @for $i from 1 through 4 {
+      @for $j from 1 through 8 {
+        &-#{nth($marginDirections,$i)}-#{$j} {
+          #{$property}-#{nth($marginDirections,$i)}: $j * $marginSpacer;
+        }
+        &-all-#{$j} {
+          #{$property}: $j * $marginSpacer;
+        }
+      }
+    }
+  }
+}
