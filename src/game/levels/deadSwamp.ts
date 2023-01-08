@@ -36,16 +36,5 @@ export class DeadSwamp extends ex.Scene {
         this.player
       );
     }, 15000);
-
-    /*setTimeout(() => {
-                              spawnEnemy(
-                                Enemies.flyEye,
-                                20,
-                                this.player.pos.x,
-                                this.player.pos.x,
-                                this.player
-                              );
-                              this.spawn();
-                            }, 5000);*/
   }
 }
