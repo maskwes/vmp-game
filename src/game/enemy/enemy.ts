@@ -16,7 +16,7 @@ export class Enemy extends ex.Actor {
       x: x,
       y: y,
       collisionType: ex.CollisionType.Active,
-      collisionGroup: ex.CollisionGroupManager.groupByName('player'),
+      collisionGroup: ex.CollisionGroupManager.groupByName('enemy'),
       collider: ex.Shape.Box(32, 50, ex.Vector.Half, ex.vec(0, 3)),
     });
     this.player = player;

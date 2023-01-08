@@ -1,5 +1,6 @@
 import * as ex from 'excalibur';
 import {evilWizardSpriteSheet} from '../resources/heroes';
+import {debounce} from '../resources/utils';
 
 export class Player extends ex.Actor {
   handleKeyEvent = {};

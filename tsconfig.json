@@ -22,7 +22,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/**/*.tmx"
+    "*.tmx"
   ],
   "references": [
     {
