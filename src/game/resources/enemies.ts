@@ -9,6 +9,7 @@ const EnemiesResources = {
 
 const Enemies: EnemySpritesInterface = {
   flyEye: {
+    imageSource: EnemiesResources.flyEye,
     sprite: ex.SpriteSheet.fromImageSource({
       image: EnemiesResources.flyEye,
       grid: {

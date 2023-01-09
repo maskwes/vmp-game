@@ -1,9 +1,15 @@
 import * as ex from 'excalibur';
 import {evilWizardSpriteSheet} from '../resources/heroes';
 import {debounce} from '../resources/utils';
+import {Enemy} from '../enemy/enemy';
+import router from '../../router';
 
 export class Player extends ex.Actor {
-  handleKeyEvent = {};
+  public health: number = 100;
+  public ammo: number = 0;
+  public speed: number = 2;
+  public weapons: [any];
+  public skills: [any];
 
   constructor(x: number, y: number, public dir: number) {
     super({
@@ -44,9 +50,20 @@ export class Player extends ex.Actor {
     this.graphics.add('right', right);
     this.graphics.add('idle', idle);
     this.graphics.use('idle');
+    this.on('postcollision', evt => this.onPreCollision(evt));
+  }
+
+  onPreCollision(evt: any) {
+    if (evt.other instanceof Enemy) {
+      console.log('asdas');
+      this.health -= evt.other?.damage;
+    }
   }
 
   onPreUpdate(_engine: ex.Engine, delta: number) {
+    if (this.health < 1) {
+      this.kill();
+    }
     // Reset x velocity
     this.vel.x = 0;
     this.vel.y = 0;

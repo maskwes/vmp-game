@@ -1,6 +1,7 @@
-import {SpriteSheet} from 'excalibur';
+import {ImageSource, SpriteSheet} from 'excalibur';
 
 export interface EnemyConfig {
+  imageSource: ImageSource;
   sprite: SpriteSheet;
   animation: EnemyAnimations;
   damage: number;
