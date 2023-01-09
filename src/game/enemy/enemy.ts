@@ -4,6 +4,11 @@ import {game} from '../index';
 
 export class Enemy extends ex.Actor {
   public enemyConfig: EnemyConfig;
+
+  public health: number = 100;
+  public ammo: number = 0;
+  public damage: number = 5;
+  public speed: number = 2;
   private player: ex.Actor;
 
   constructor(
@@ -42,7 +47,7 @@ export class Enemy extends ex.Actor {
   }
 
   getSpeed(differencePosition: number) {
-    return differencePosition < 0 ? -2 : 2;
+    return differencePosition < 0 ? -this.speed : this.speed;
   }
 }
 
@@ -51,12 +56,13 @@ export function spawnEnemy(
   count: number,
   x: number,
   y: number,
-  player: ex.Actor
+  player: ex.Actor,
+  engine: ex.Engine
 ) {
   const r = 800;
   const asd = r / count;
   for (let i = 0; i < count; i++) {
-    game.add(
+    engine.add(
       new Enemy(
         r * Math.cos(asd * i) + x,
         r * Math.sin(asd * i) + y,

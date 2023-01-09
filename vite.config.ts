@@ -5,7 +5,7 @@ import {fileURLToPath, URL} from 'url';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  assetsInclude: ['*.tmx'],
+  assetsInclude: ['**/*.tmx'],
   build: {
     rollupOptions: {
       output: {

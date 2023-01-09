@@ -1,10 +1,11 @@
 import * as ex from 'excalibur';
 import {Player} from '../player/player';
 import {LevelsResources} from '../resources/levels';
-import {game} from '../index';
 import {TiledObjectGroup} from '@excaliburjs/plugin-tiled';
 import {spawnEnemy} from '../enemy/enemy';
 import {Enemies} from '../resources/enemies';
+import {HealthBar} from '../player/health-bar';
+import router from '../../router';
 
 export class DeadSwamp extends ex.Scene {
   private player: ex.Actor;
@@ -14,27 +15,29 @@ export class DeadSwamp extends ex.Scene {
   }
 
   onInitialize(_engine: ex.Engine) {
-    LevelsResources?.deadSwamp.addTiledMapToScene(game.currentScene);
+    LevelsResources?.deadSwamp.addTiledMapToScene(_engine.currentScene);
     this.player = new Player(
       LevelsResources?.deadSwamp.ex.camera.x,
       LevelsResources?.deadSwamp.ex.camera.y,
       1
     );
-    game.currentScene.camera.strategy.lockToActor(this.player);
+    _engine.currentScene.camera.strategy.lockToActor(this.player);
     _engine.add(this.player);
-    this.spawn();
-    console.log(-1 + 2);
+    const healthBar = new HealthBar();
+    _engine.add(healthBar);
+    this.spawn(_engine);
   }
 
-  spawn() {
-    setInterval(() => {
-      spawnEnemy(
-        Enemies.flyEye,
-        1,
-        this.player.pos.x,
-        this.player.pos.x,
-        this.player
-      );
-    }, 15000);
+  onPreUpdate(_engine: ex.Engine, _delta: number) {}
+
+  spawn(_engine: ex.Engine) {
+    spawnEnemy(
+      Enemies.flyEye,
+      1,
+      this.player.pos.x,
+      this.player.pos.x,
+      this.player,
+      _engine
+    );
   }
 }
