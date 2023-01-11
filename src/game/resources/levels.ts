@@ -1,7 +1,7 @@
 import {TiledMapResource} from '@excaliburjs/plugin-tiled';
 // forest assets
-import deadSwampTileMap from './levels/deadSwamp/deadSwamp.tmx';
-import deadSwampTileSet from './levels/deadSwamp/deadSwampTileSet.png';
+import deadSwampTileMap from '../assets/levels/deadSwamp.tmx';
+import deadSwampTileSet from '../assets/levels/deadSwamp/deadSwampTileSet.png';
 
 const LevelsResources = {
   deadSwamp: new TiledMapResource(deadSwampTileMap),

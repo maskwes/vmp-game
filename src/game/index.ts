@@ -1,24 +1,14 @@
-import * as ex from 'excalibur';
-import {Loader} from './resources';
-import {DeadSwamp} from './levels/deadSwamp';
+import Phaser from 'phaser';
 
-let game: any;
-
-function startGame() {
-  if (game) {
-    window.location.reload();
-  }
-  game = new ex.Engine({
-    backgroundColor: ex.Color.fromHex('#5fcde4'),
-    canvasElementId: 'game',
-    fixedUpdateFps: 60,
-    antialiasing: false,
-    displayMode: ex.DisplayMode.FitScreenAndFill,
+export function startGame(gameContainerId: string, scene: Phaser.Scene) {
+  const game = new Phaser.Game({
+    type: Phaser.AUTO,
+    parent: gameContainerId,
+    backgroundColor: '#33A5E7',
+    scale: {
+      mode: Phaser.Scale.WIDTH_CONTROLS_HEIGHT,
+    },
+    scene: [scene],
   });
-
-  game.add('level', new DeadSwamp());
-  game.goToScene('level');
-  game.start(Loader).then(() => {});
+  return game;
 }
-
-export {startGame};

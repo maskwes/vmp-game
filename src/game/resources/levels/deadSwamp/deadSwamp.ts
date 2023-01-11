@@ -1,8 +1,8 @@
 import ex from 'excalibur';
 import {TiledMapResource} from '@excaliburjs/plugin-tiled';
 // import map
-import deadSwampTileMap from './deadSwamp.tmx';
-import deadSwampTileSet from './deadSwampTileSet.png';
+import deadSwampTileMap from '../../../assets/levels/deadSwamp.tmx';
+import deadSwampTileSet from '../../../assets/levels/deadSwamp/deadSwampTileSet.png';
 import {Enemies} from '../../enemies';
 
 const TileMap = new TiledMapResource(deadSwampTileMap);
